@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <style>
+        body{
+            background:url("https://images.pexels.com/photos/209224/pexels-photo-209224.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500") no-repeat;
+            background-size:cover;
+            font-family: "sans-serif";
+            color:black;
+        }
+        form{
+            width: 500px;
+            height: 600px;
+            position:absolute;
+            top:55%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        label{
+            font-size:40px;
+            
+            text-align:center;
+        }
+        .credit{
+            background-color:transparent;
+            color:black;
+            font-weight: bolder;
+            border-bottom:2px solid black;
+            border-left:2px solid black;
+        }
+        .credit::placeholder{
+            color:black;
+            
+        }
+        .Grade{
+            background-color:transparent;
+            color:black;
+            font-weight: bolder;
+            border-bottom:2px solid black;
+            border-left:2px solid black;
+        }
+        .Grade::placeholder{
+            color:black;
+            
+        }
+        form{
+            font-size:20px;
+            background-color:#f5f6fa;
+        }
+        #btn{
+            position:absolute;
+            margin-left:40%;
+            background-color: transparent;
+            border-bottom:2px solid black;
+            border-left:2px solid black;
+        }
+        #result{
+            position:absolute;
+            margin-left:32%;
+            border-bottom:2px solid black;
+            border-left:2px solid black;
+        }
+        div{
+            font-size:30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <h1>SRM CGPA Calculator</h1>
+    </div>
+    <form id="form">
+        <label>Lets Calculate</label><br/><br/><br/>
+   <b> credit:</b>
+    <input class="credit" type="text" placeholder="Credit" name="Credit" value="0">
+    <b>grade:</b>
+    <input class="Grade" type="text" placeholder="Grade" onkeyup="this.value=this.value.toUpperCase();" name="Grade" value="NA">
+    <br/><br/>
+    <b> credit:</b>
+    <input class="credit" type="text" placeholder="Credit" name="Credit" value="0">
+    <b>grade:</b>
+    <input class="Grade" type="text" placeholder="Grade" onkeyup="this.value=this.value.toUpperCase();" name="Grade" value="NA">
+    <br/><br/>
+    <b> credit:</b>
+    <input class="credit" type="text" placeholder="Credit" name="Credit" value="0">
+    <b>grade:</b>
+    <input class="Grade" type="text" placeholder="Grade" onkeyup="this.value=this.value.toUpperCase();" name="Grade" value="NA">
+    <br/><br/>
+    <b> credit:</b>
+    <input class="credit" type="text" placeholder="Credit" name="Credit" value="0">
+    <b>grade:</b>
+    <input class="Grade" type="text" placeholder="Grade" onkeyup="this.value=this.value.toUpperCase();" name="Grade" value="NA">
+    <br/><br/>
+    <b> credit:</b>
+    <input class="credit" type="text" placeholder="Credit" name="Credit" value="0">
+    <b>grade:</b>
+    <input class="Grade" type="text" placeholder="Grade" onkeyup="this.value=this.value.toUpperCase();" name="Grade" value="NA">
+    <br/><br/>
+    <b> credit:</b>
+    <input class="credit" type="text" placeholder="Credit" name="Credit" value="0">
+    <b>grade:</b>
+    <input class="Grade" type="text" placeholder="Grade" onkeyup="this.value=this.value.toUpperCase();" name="Grade" value="NA">
+    <br/><br/>
+    <b> credit:</b>
+    <input class="credit" type="text" placeholder="Credit" name="Credit" value="0">
+    <b>grade:</b>
+    <input class="Grade" type="text" placeholder="Grade" onkeyup="this.value=this.value.toUpperCase();" name="Grade" value="NA">
+    <br/><br/>
+    <b> credit:</b>
+    <input class="credit" type="text" placeholder="Credit" name="Credit" value="0">
+    <b>grade:</b>
+    <input class="Grade" type="text" placeholder="Grade" onkeyup="this.value=this.value.toUpperCase();" name="Grade" value="NA">
+    <br/><br/>
+    <button id="btn" type="button" name=result onclick="calculate()">Calculate</button><br/><br/>
+    <input id="result" type="text" name="result" placeholder="CGPA"/><br/><br/>
+</form>
+
+    <script>
+        
+       
+        function calculate()
+        {
+            var arr1=document.getElementsByClassName("credit");
+            var arr2=document.getElementsByClassName("Grade");
+            var sum=0 ;
+            console.log(arr1);
+            var S=0;
+            for(var i=0;i<8;i++)
+            {   
+
+                c=parseInt(arr1[i].value);
+                if(c==0){
+                    continue;
+                }
+                sum=sum+c;
+                switch(arr2[i].value)
+                {
+                       case "O": 
+                       var m=10;
+                        break;
+                       case "A+" : 
+                        var m=9
+                        break;
+
+                        case "A": 
+                        var m=8;
+                        break;
+                        case "B+":
+                        var m=7.5;
+                        break;
+                        case "B": 
+                        var m=7;
+                        break;
+                        case "C+": 
+                        var m=6.5;
+                        break;
+                        case "C": 
+                         var m=6;
+                         break;
+                        case "D+": 
+                        var m=5.5; 
+                        break;
+                        case "D": 
+                        var m=5;
+                        break;
+                        case "F": 
+                        form.result=alert("You are the biggest  failure");
+                        
+                        break;
+                        case "NA":
+                        var m = 0;
+                        default:
+                        form.result=alert("The entered grade is Not Available");
+                        
+
+                   }
+                  
+                  S=S+(m*(arr1[i].value));
+               }
+               var result=S/sum;
+               //form.result.value=result;
+               //document.write(result);
+               var res=document.getElementById("result");
+               res.value=result;
+            }
+           
+
+
+        
+        
+      
+            
+        
+    </script>
+</body>
+
+</html>
